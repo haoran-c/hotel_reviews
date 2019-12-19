@@ -1,4 +1,6 @@
 import json
+import os
+
 import numpy
 from joblib import dump, load
 from sklearn.svm import SVC
@@ -113,6 +115,7 @@ def precision(clf):
 
 
 if __name__ == '__main__':
+    os.mkdir('classifiers')
     data = []
     labels = []
     print('Reading training data set...\n')
