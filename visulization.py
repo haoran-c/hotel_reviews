@@ -35,7 +35,7 @@ folium.Choropleth(
     fill_color='YlOrRd',
     fill_opacity=0.7,
     line_opacity=0.2,
-    legend_name='Hotels'
+    legend_name='Avg. Hotel Rating'
 ).add_to(us_map)
 
 # save the world map to an html file
