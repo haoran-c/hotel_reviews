@@ -4,7 +4,7 @@
 
 ## Dataset Information
 
-We use and compare various different methods for sentiment analysis on hotel reviews (a binary classification problem). The training dataset is expected to be a csv file containing `text,sentiment` where the `sentiment` is either `1` (positive) or `0` (negative), and `text` is the tweet enclosed in `""`. Similarly, the test dataset is a csv file of type `tweet_id,tweet`. 
+We use and compare various different models for sentiment analysis on hotel reviews (a binary classification problem). The training dataset is expected to be a csv file containing `text,sentiment` where the `sentiment` is either `1` (positive) or `0` (negative), and `text` is the review text. 
 
 ## Requirements
 
