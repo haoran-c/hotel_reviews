@@ -1,6 +1,7 @@
 import json
 import csv
 import zipcodes
+import generate_train_set
 
 json_data = {}
 
@@ -42,4 +43,6 @@ with open('data/raw_data.csv', 'r', newline='', encoding='utf-8') as csvfile:
 
 with open("data/data_set.json", "w") as write_file:
     json.dump(json_data, write_file, indent=4)
+
+generate_train_set
 
