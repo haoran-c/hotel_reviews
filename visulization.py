@@ -40,7 +40,7 @@ folium.Choropleth(
     data=rating,
     columns=['State', 'Rating'],
     key_on='feature.id',
-    fill_color='YlOrRd',
+    fill_color='YlGn',
     fill_opacity=0.7,
     line_opacity=0.2,
     bins=bins,
