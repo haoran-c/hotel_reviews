@@ -115,7 +115,8 @@ def precision(clf):
 
 
 if __name__ == '__main__':
-    os.mkdir('classifiers')
+    if not os.path.isdir('classifiers'):
+        os.mkdir('classifiers')
     data = []
     labels = []
     print('Reading training data set...\n')

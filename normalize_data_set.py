@@ -28,7 +28,7 @@ with open('data/raw_data.csv', 'r', newline='', encoding='utf-8') as csvfile:
             lookup = zipcodes.matching(postcode)
             if len(lookup) != 0:
                 state = lookup[0]['state']
-        text = row[14]
+        text = row[12]
         visited = False
         for key in json_data.keys():
             if name == json_data[key]['name']:

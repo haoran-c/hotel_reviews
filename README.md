@@ -40,5 +40,5 @@ Run `visualization.py` to generate an html file, which shows the choropleth map 
 
 ## Information about other files
 
-* `data/Datafiniti_Hotel_Reviews.csv`: csv file of reviews with accurate rating
-* `data/raw_data.csv`: csv file of approximately 35000 reviews from Datafiniti
+* `data/Datafiniti_Hotel_Reviews.csv`: csv file of 10000 reviews with accurate rating
+* `data/raw_data.csv`: csv file of approximately 56000 reviews from Datafiniti

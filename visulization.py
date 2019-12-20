@@ -33,7 +33,7 @@ us_states = f'{url}/us-states.json'
 us_geo = json.loads(requests.get(us_states).text)
 train = pd.DataFrame.from_dict(rating, orient='index')
 train.reset_index(level=0, inplace=True)
-bins = list(train[0].quantile([0, 0.2, 0.4, 0.6, 0.75, 0.86, 0.92, 1]))
+bins = list(train[0].quantile([0, 0.03, 0.08, 0.15, 0.4, 0.6, 0.75, 0.86, 0.95, 1]))
 # render a map of each state's average applause rate
 folium.Choropleth(
     geo_data=us_geo,
