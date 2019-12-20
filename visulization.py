@@ -1,6 +1,8 @@
 import folium
 import json
 import requests
+import pandas as pd
+import webbrowser
 
 data = {}
 with open('data/applause_rate.json', newline='', encoding='utf8') as f:
@@ -18,7 +20,10 @@ for index in data:
             states[state]['number of applauds'] += applauds
 rating = {}
 for state in states:
-    rating[state] = states[state]['number of applauds'] / states[state]['number of reviews']
+    percentage = 100 *states[state]['number of applauds'] / states[state]['number of reviews']
+    if percentage == 0:
+        continue
+    rating[state] = percentage
 
 # initialize a us map
 us_map = folium.Map(location=[35, -95], zoom_start=4)
@@ -26,6 +31,9 @@ us_map = folium.Map(location=[35, -95], zoom_start=4)
 url = 'https://raw.githubusercontent.com/python-visualization/folium/master/examples/data'
 us_states = f'{url}/us-states.json'
 us_geo = json.loads(requests.get(us_states).text)
+train = pd.DataFrame.from_dict(rating, orient='index')
+train.reset_index(level=0, inplace=True)
+bins = list(train[0].quantile([0, 0.2, 0.4, 0.6, 0.75, 0.86, 0.92, 1]))
 # render a map of each state's average applause rate
 folium.Choropleth(
     geo_data=us_geo,
@@ -35,8 +43,10 @@ folium.Choropleth(
     fill_color='YlOrRd',
     fill_opacity=0.7,
     line_opacity=0.2,
-    legend_name='Avg. Hotel Rating'
+    bins=bins,
+    legend_name='Avg. Hotel Applause Rate(%)'
 ).add_to(us_map)
 
 # save the world map to an html file
 us_map.save('map.html')
+webbrowser.open('map.html')
