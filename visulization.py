@@ -25,6 +25,9 @@ for state in states:
         continue
     rating[state] = percentage
 
+with open('data/state_ratings.json', 'w') as f:
+    json.dump(rating, f, indent=4)
+
 # initialize a us map
 us_map = folium.Map(location=[35, -95], zoom_start=4)
 # fetch geo json file of the states in the us
